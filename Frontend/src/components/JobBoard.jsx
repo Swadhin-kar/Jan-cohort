@@ -5,7 +5,6 @@ import JobCard from "./JobCard";
 import FilterPanel from "./FilterPanel";
 import JobModal from "./JobResults";
 
-// Candidate default profile
 const candidateProfile = {
     skills: ["Python", "FastAPI", "Docker", "React"],
     experience_years: 1,
@@ -16,7 +15,6 @@ const candidateProfile = {
 };
 
 const JobBoard = () => {
-    // Initialize filters state with default values from candidateProfile
     const [filters, setFilters] = useState({
         skills: candidateProfile.skills,
         minExperience: candidateProfile.experience_years,
@@ -27,28 +25,26 @@ const JobBoard = () => {
     });
 
     const [filteredJobs, setFilteredJobs] = useState([]);
-    const [layout, setLayout] = useState("grid"); // "grid" or "list"
+    const [layout, setLayout] = useState("grid");
     const [selectedJob, setSelectedJob] = useState(null);
 
-    // Filter jobs dynamically whenever filters change
     useEffect(() => {
         let jobs = [...jobsData.jobs];
 
-        // Check if any specific filters are actually active beyond defaults
+        // Check if user has any active selections
         const hasActiveFilters =
             filters.locations.length > 0 ||
             filters.roles.length > 0 ||
             filters.skills.length > 0;
 
-        // If no filters are selected at all, show everything
         if (!hasActiveFilters) {
             setFilteredJobs(jobs);
             return;
         }
 
         const filtered = jobs.filter(job => {
-            // Must have ALL selected skills
-            // OR Logic: Match if the job contains ANY of the selected skills
+            // 1. --- SKILLS: "OR" Logic ---
+            // Match if job has ANY of the selected skills
             const skillsMatch = filters.skills.length === 0 ||
                 filters.skills.some(skill => job.required_skills.includes(skill));
 
@@ -60,8 +56,7 @@ const JobBoard = () => {
             const roleMatch = filters.roles.length === 0 ||
                 filters.roles.includes(job.title);
 
-            // 4. --- SALARY: Filter Logic ---
-            // Show jobs where the top of the range is >= user's expectation
+            // 4. --- SALARY: Constraint ---
             const jobMaxSalary = job.salary_range[1];
             const salaryMatch = jobMaxSalary >= filters.maxSalary;
 
@@ -69,50 +64,58 @@ const JobBoard = () => {
             const jobMinExp = parseInt(job.experience_required.split("-")[0]) || 0;
             const experienceMatch = jobMinExp <= filters.minExperience;
 
-            // --- COMBINED LOGIC ---
-            // Skills, Salary, and Experience are mandatory (AND)
-            // Either Location OR Role must match (OR)
-            const isFlexibleMatch = locationMatch || roleMatch;
+            // --- FINAL LOGIC ---
+            // Must satisfy Salary & Experience requirements
+            // Must match EITHER Skills OR Location OR Role
+            const isFlexibleMatch = skillsMatch || locationMatch || roleMatch;
 
-            return skillsMatch && salaryMatch && experienceMatch && isFlexibleMatch;
+            return salaryMatch && experienceMatch && isFlexibleMatch;
         });
 
-        setFilteredJobs(filtered);
+        // Optional: Sort by "Relevance" (How many OR conditions matched)
+        const scoredJobs = filtered.map(job => {
+            let score = 0;
+            if (filters.skills.some(s => job.required_skills.includes(s))) score++;
+            if (filters.locations.includes(job.location)) score++;
+            if (filters.roles.includes(job.title)) score++;
+            return { ...job, matchScore: score };
+        }).sort((a, b) => b.matchScore - a.matchScore);
+
+        setFilteredJobs(scoredJobs);
     }, [filters]);
 
-    // Animation variants
     const itemVariants = {
         hidden: { opacity: 0, y: 16 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
-        exit: { opacity: 0, y: -10, transition: { duration: 0.2 } }
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+        exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } }
     };
 
     return (
-        <motion.div className="flex h-screen bg-gray-50">
-            {/* Filter Panel */}
+        <motion.div className="flex h-screen bg-gray-50 overflow-hidden">
             <FilterPanel filters={filters} setFilters={setFilters} />
 
-            {/* Main Panel */}
-            <main className="w-[70%] p-8 overflow-y-auto">
-                <div className="max-w-5xl mx-auto space-y-5">
-                    <div className="flex justify-between items-center mb-6">
-                        <h2 className="text-2xl font-semibold">
-                            Recommended Jobs ({filteredJobs.length})
-                        </h2>
+            <main className="flex-1 p-8 overflow-y-auto">
+                <div className="max-w-6xl mx-auto space-y-6">
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-900">Recommended Jobs</h2>
+                            <p className="text-gray-500 mt-1">Found {filteredJobs.length} opportunities</p>
+                        </div>
 
-                        {/* Grid/List toggle */}
-                        <div className="flex space-x-2">
+                        <div className="flex bg-white p-1 rounded-xl shadow-sm border">
                             <button
                                 onClick={() => setLayout("grid")}
-                                className={`px-3 py-1 rounded transition-colors ${layout === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
-                                    }`}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                                    layout === "grid" ? "bg-blue-600 text-white shadow-md" : "text-gray-600 hover:bg-gray-50"
+                                }`}
                             >
                                 Grid
                             </button>
                             <button
                                 onClick={() => setLayout("list")}
-                                className={`px-3 py-1 rounded transition-colors ${layout === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
-                                    }`}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                                    layout === "list" ? "bg-blue-600 text-white shadow-md" : "text-gray-600 hover:bg-gray-50"
+                                }`}
                             >
                                 List
                             </button>
@@ -125,18 +128,17 @@ const JobBoard = () => {
                                 key="empty"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="text-gray-500 text-center mt-10"
+                                className="flex flex-col items-center justify-center py-20 text-gray-400"
                             >
-                                No jobs match your criteria.
+                                <span className="text-5xl mb-4">🔍</span>
+                                <p className="text-lg">No matches found. Try adjusting your filters.</p>
                             </motion.div>
                         ) : (
                             <motion.div
                                 layout
-                                className={`grid gap-5 ${layout === "grid"
-                                        ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                                        : "grid-cols-1"
-                                    }`}
+                                className={`grid gap-6 ${
+                                    layout === "grid" ? "grid-cols-1 md:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"
+                                }`}
                             >
                                 {filteredJobs.map((job) => (
                                     <motion.div
