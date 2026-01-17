@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 
 // Options for the filter UI
-const allSkills = ["Python", "FastAPI", "Docker", "React", "Node", "AWS"];
-const allLocations = ["Bangalore", "Hyderabad", "Remote", "Chennai"];
-const allRoles = ["Backend Developer", "Full Stack Developer", "Frontend Developer"];
-const allEducation = ["B.Tech", "M.Tech", "B.Sc", "M.Sc", "BCA", "MCA"];
+// const allSkills = ["Python", "FastAPI", "Docker", "React", "Node", "AWS"];
+// const allLocations = ["Bangalore", "Hyderabad", "Remote", "Chennai"];
+// const allRoles = ["Backend Developer", "Full Stack Developer", "Frontend Developer"];
+// const allEducation = ["B.Tech", "M.Tech", "B.Sc", "M.Sc", "BCA", "MCA"];
+
+import { allSkills, allLocations, allRoles, allEducation } from "./FilterArrays";
 
 const FilterPanel = ({ filters, setFilters }) => {
   if (!filters) return null; // safeguard against undefined
