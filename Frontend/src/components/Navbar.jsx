@@ -32,7 +32,7 @@ const Navbar = () => {
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={`fixed top-0 w-full z-50 ${sticky
+            className={`fixed top-0 w-full z-50 shadow-md ${sticky
                 ? "backdrop-blur-xl bg-white/80 shadow-lg"
                 : "bg-white"
                 }`}
