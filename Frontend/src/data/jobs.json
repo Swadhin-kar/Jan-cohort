@@ -3,7 +3,7 @@
     {
       "job_id": "J001",
       "title": "Backend Developer",
-      "required_skills": ["Python", "FastAPI", "PostgreSQL"],
+      "required_skills": ["Python"],
       "experience_required": "0-2 years",
       "location": "Bangalore",
       "salary_range": [600000, 1000000],
@@ -12,7 +12,7 @@
     {
       "job_id": "J002",
       "title": "Frontend Developer",
-      "required_skills": ["HTML", "CSS", "JavaScript", "React"],
+      "required_skills": ["React"],
       "experience_required": "0-2 years",
       "location": "Hyderabad",
       "salary_range": [500000, 900000],
@@ -21,7 +21,7 @@
     {
       "job_id": "J003",
       "title": "Full Stack Developer",
-      "required_skills": ["JavaScript", "React", "Node.js", "MongoDB"],
+      "required_skills": ["Node.js"],
       "experience_required": "1-3 years",
       "location": "Pune",
       "salary_range": [700000, 1200000],
@@ -30,7 +30,7 @@
     {
       "job_id": "J004",
       "title": "Data Analyst",
-      "required_skills": ["Python", "Pandas", "SQL", "Excel"],
+      "required_skills": ["SQL"],
       "experience_required": "0-2 years",
       "location": "Delhi",
       "salary_range": [500000, 800000],
@@ -39,7 +39,7 @@
     {
       "job_id": "J005",
       "title": "Machine Learning Engineer",
-      "required_skills": ["Python", "Scikit-learn", "TensorFlow"],
+      "required_skills": ["TensorFlow"],
       "experience_required": "1-3 years",
       "location": "Bangalore",
       "salary_range": [900000, 1500000],
@@ -48,7 +48,7 @@
     {
       "job_id": "J006",
       "title": "DevOps Engineer",
-      "required_skills": ["Docker", "Kubernetes", "AWS", "Linux"],
+      "required_skills": ["Kubernetes"],
       "experience_required": "2-4 years",
       "location": "Chennai",
       "salary_range": [1000000, 1600000],
@@ -57,7 +57,7 @@
     {
       "job_id": "J007",
       "title": "Java Developer",
-      "required_skills": ["Java", "Spring Boot", "MySQL"],
+      "required_skills": ["Spring Boot"],
       "experience_required": "0-2 years",
       "location": "Noida",
       "salary_range": [600000, 1000000],
@@ -66,7 +66,7 @@
     {
       "job_id": "J008",
       "title": "Android Developer",
-      "required_skills": ["Kotlin", "Android SDK", "Firebase"],
+      "required_skills": ["Kotlin"],
       "experience_required": "1-3 years",
       "location": "Bangalore",
       "salary_range": [700000, 1200000],
@@ -75,7 +75,7 @@
     {
       "job_id": "J009",
       "title": "iOS Developer",
-      "required_skills": ["Swift", "iOS SDK", "Xcode"],
+      "required_skills": ["Swift"],
       "experience_required": "1-3 years",
       "location": "Mumbai",
       "salary_range": [800000, 1300000],
@@ -84,7 +84,7 @@
     {
       "job_id": "J010",
       "title": "UI/UX Designer",
-      "required_skills": ["Figma", "Adobe XD", "Wireframing"],
+      "required_skills": ["Figma"],
       "experience_required": "0-2 years",
       "location": "Pune",
       "salary_range": [400000, 700000],
@@ -93,7 +93,7 @@
     {
       "job_id": "J011",
       "title": "QA Engineer",
-      "required_skills": ["Manual Testing", "Selenium", "Test Cases"],
+      "required_skills": ["Selenium"],
       "experience_required": "0-2 years",
       "location": "Kolkata",
       "salary_range": [400000, 650000],
@@ -102,7 +102,7 @@
     {
       "job_id": "J012",
       "title": "Cyber Security Analyst",
-      "required_skills": ["Network Security", "SIEM", "Linux"],
+      "required_skills": ["Network Security"],
       "experience_required": "1-3 years",
       "location": "Gurgaon",
       "salary_range": [900000, 1400000],
@@ -111,7 +111,7 @@
     {
       "job_id": "J013",
       "title": "Cloud Engineer",
-      "required_skills": ["AWS", "Azure", "Terraform"],
+      "required_skills": ["AWS"],
       "experience_required": "2-4 years",
       "location": "Bangalore",
       "salary_range": [1000000, 1700000],
@@ -120,7 +120,7 @@
     {
       "job_id": "J014",
       "title": "Data Engineer",
-      "required_skills": ["Python", "Spark", "Hadoop"],
+      "required_skills": ["Spark"],
       "experience_required": "2-4 years",
       "location": "Hyderabad",
       "salary_range": [1100000, 1800000],
@@ -129,7 +129,7 @@
     {
       "job_id": "J015",
       "title": "Business Analyst",
-      "required_skills": ["SQL", "Excel", "Power BI"],
+      "required_skills": ["Power BI"],
       "experience_required": "0-2 years",
       "location": "Mumbai",
       "salary_range": [500000, 800000],
@@ -138,7 +138,7 @@
     {
       "job_id": "J016",
       "title": "Game Developer",
-      "required_skills": ["C++", "Unity", "Game Physics"],
+      "required_skills": ["Unity"],
       "experience_required": "1-3 years",
       "location": "Pune",
       "salary_range": [700000, 1200000],
@@ -147,7 +147,7 @@
     {
       "job_id": "J017",
       "title": "Blockchain Developer",
-      "required_skills": ["Solidity", "Ethereum", "Web3"],
+      "required_skills": ["Solidity"],
       "experience_required": "1-3 years",
       "location": "Bangalore",
       "salary_range": [1200000, 2000000],
@@ -156,7 +156,7 @@
     {
       "job_id": "J018",
       "title": "Embedded Systems Engineer",
-      "required_skills": ["C", "Microcontrollers", "RTOS"],
+      "required_skills": ["C"],
       "experience_required": "0-2 years",
       "location": "Chennai",
       "salary_range": [500000, 900000],
@@ -165,7 +165,7 @@
     {
       "job_id": "J019",
       "title": "AR/VR Developer",
-      "required_skills": ["Unity", "C#", "ARKit"],
+      "required_skills": ["ARKit"],
       "experience_required": "1-3 years",
       "location": "Bangalore",
       "salary_range": [900000, 1500000],
@@ -174,7 +174,7 @@
     {
       "job_id": "J020",
       "title": "Product Manager",
-      "required_skills": ["Agile", "Roadmapping", "Communication"],
+      "required_skills": ["Agile"],
       "experience_required": "2-4 years",
       "location": "Gurgaon",
       "salary_range": [1200000, 2000000],
@@ -183,7 +183,7 @@
     {
       "job_id": "J021",
       "title": "Technical Support Engineer",
-      "required_skills": ["Troubleshooting", "Linux", "Networking"],
+      "required_skills": ["Troubleshooting"],
       "experience_required": "0-1 years",
       "location": "Jaipur",
       "salary_range": [300000, 500000],
@@ -192,7 +192,7 @@
     {
       "job_id": "J022",
       "title": "Site Reliability Engineer",
-      "required_skills": ["Linux", "Monitoring", "AWS"],
+      "required_skills": ["Monitoring"],
       "experience_required": "2-4 years",
       "location": "Bangalore",
       "salary_range": [1100000, 1800000],
@@ -201,7 +201,7 @@
     {
       "job_id": "J023",
       "title": "React Native Developer",
-      "required_skills": ["React Native", "JavaScript", "Redux"],
+      "required_skills": ["React Native"],
       "experience_required": "1-3 years",
       "location": "Indore",
       "salary_range": [600000, 1000000],
@@ -210,7 +210,7 @@
     {
       "job_id": "J024",
       "title": "PHP Developer",
-      "required_skills": ["PHP", "Laravel", "MySQL"],
+      "required_skills": ["Laravel"],
       "experience_required": "0-2 years",
       "location": "Ahmedabad",
       "salary_range": [400000, 700000],
@@ -219,7 +219,7 @@
     {
       "job_id": "J025",
       "title": "Go Developer",
-      "required_skills": ["Go", "Microservices", "Docker"],
+      "required_skills": ["Go"],
       "experience_required": "1-3 years",
       "location": "Bangalore",
       "salary_range": [900000, 1400000],
@@ -228,7 +228,7 @@
     {
       "job_id": "J026",
       "title": "System Administrator",
-      "required_skills": ["Linux", "Shell Scripting", "Servers"],
+      "required_skills": ["Linux"],
       "experience_required": "1-3 years",
       "location": "Nagpur",
       "salary_range": [500000, 800000],
@@ -237,7 +237,7 @@
     {
       "job_id": "J027",
       "title": "AI Research Intern",
-      "required_skills": ["Python", "Deep Learning", "Research"],
+      "required_skills": ["Deep Learning"],
       "experience_required": "Student/Intern",
       "location": "Remote",
       "salary_range": [200000, 400000],
@@ -246,7 +246,7 @@
     {
       "job_id": "J028",
       "title": "Technical Writer",
-      "required_skills": ["Documentation", "Markdown", "APIs"],
+      "required_skills": ["Markdown"],
       "experience_required": "0-2 years",
       "location": "Remote",
       "salary_range": [400000, 700000],
@@ -255,7 +255,7 @@
     {
       "job_id": "J029",
       "title": "Database Administrator",
-      "required_skills": ["MySQL", "PostgreSQL", "Backup"],
+      "required_skills": ["PostgreSQL"],
       "experience_required": "2-4 years",
       "location": "Bangalore",
       "salary_range": [800000, 1300000],
@@ -264,7 +264,7 @@
     {
       "job_id": "J030",
       "title": "Software Engineer Trainee",
-      "required_skills": ["C++", "DSA", "Problem Solving"],
+      "required_skills": ["DSA"],
       "experience_required": "Fresher",
       "location": "Rourkela",
       "salary_range": [350000, 600000],
