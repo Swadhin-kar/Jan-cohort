@@ -269,6 +269,186 @@
       "location": "Rourkela",
       "salary_range": [350000, 600000],
       "company": "NextGenSoft"
+    },
+    {
+      "job_id": "J031",
+      "title": "Security Engineer",
+      "required_skills": ["Penetration Testing"],
+      "experience_required": "2-5 years",
+      "location": "Hyderabad",
+      "salary_range": [1100000, 1900000],
+      "company": "SafeGuard IT"
+    },
+    {
+      "job_id": "J032",
+      "title": "Cloud Architect",
+      "required_skills": ["Azure"],
+      "experience_required": "5-8 years",
+      "location": "Bangalore",
+      "salary_range": [2000000, 3500000],
+      "company": "CloudPinnacle"
+    },
+    {
+      "job_id": "J033",
+      "title": "Ruby on Rails Developer",
+      "required_skills": ["Ruby"],
+      "experience_required": "1-3 years",
+      "location": "Pune",
+      "salary_range": [700000, 1100000],
+      "company": "GemStack"
+    },
+    {
+      "job_id": "J034",
+      "title": "Data Scientist",
+      "required_skills": ["R"],
+      "experience_required": "2-4 years",
+      "location": "Mumbai",
+      "salary_range": [1200000, 1800000],
+      "company": "InsightEdge"
+    },
+    {
+      "job_id": "J035",
+      "title": "Hardware Design Engineer",
+      "required_skills": ["Verilog"],
+      "experience_required": "1-3 years",
+      "location": "Chennai",
+      "salary_range": [600000, 1100000],
+      "company": "SiliconCraft"
+    },
+    {
+      "job_id": "J036",
+      "title": "Scrum Master",
+      "required_skills": ["Scrum"],
+      "experience_required": "3-5 years",
+      "location": "Delhi",
+      "salary_range": [1300000, 2100000],
+      "company": "AgileFlow"
+    },
+    {
+      "job_id": "J037",
+      "title": "Flutter Developer",
+      "required_skills": ["Dart"],
+      "experience_required": "0-2 years",
+      "location": "Kochi",
+      "salary_range": [450000, 800000],
+      "company": "CrossPlatform"
+    },
+    {
+      "job_id": "J038",
+      "title": "Network Engineer",
+      "required_skills": ["Cisco"],
+      "experience_required": "2-4 years",
+      "location": "Bhubaneswar",
+      "salary_range": [500000, 950000],
+      "company": "NetConnect"
+    },
+    {
+      "job_id": "J039",
+      "title": "SEO Specialist",
+      "required_skills": ["Google Analytics"],
+      "experience_required": "1-3 years",
+      "location": "Remote",
+      "salary_range": [400000, 750000],
+      "company": "GrowthOps"
+    },
+    {
+      "job_id": "J040",
+      "title": "Computer Vision Engineer",
+      "required_skills": ["OpenCV"],
+      "experience_required": "2-5 years",
+      "location": "Bangalore",
+      "salary_range": [1400000, 2200000],
+      "company": "VisualAI"
+    },
+    {
+      "job_id": "J041",
+      "title": "ETL Developer",
+      "required_skills": ["Informatica"],
+      "experience_required": "3-5 years",
+      "location": "Hyderabad",
+      "salary_range": [900000, 1500000],
+      "company": "DataFlow"
+    },
+    {
+      "job_id": "J042",
+      "title": "Unity 3D Artist",
+      "required_skills": ["Blender"],
+      "experience_required": "1-3 years",
+      "location": "Pune",
+      "salary_range": [500000, 900000],
+      "company": "PixelPerfect"
+    },
+    {
+      "job_id": "J043",
+      "title": "Solution Architect",
+      "required_skills": ["Microservices"],
+      "experience_required": "6-10 years",
+      "location": "Bangalore",
+      "salary_range": [2500000, 4500000],
+      "company": "EnterprisePro"
+    },
+    {
+      "job_id": "J044",
+      "title": "Vue.js Developer",
+      "required_skills": ["Vue"],
+      "experience_required": "1-3 years",
+      "location": "Ahmedabad",
+      "salary_range": [600000, 1000000],
+      "company": "JSWorld"
+    },
+    {
+      "job_id": "J045",
+      "title": "Big Data Architect",
+      "required_skills": ["Hadoop"],
+      "experience_required": "5-8 years",
+      "location": "Gurgaon",
+      "salary_range": [2200000, 3800000],
+      "company": "MegaData"
+    },
+    {
+      "job_id": "J046",
+      "title": "Automation Tester",
+      "required_skills": ["Appium"],
+      "experience_required": "2-4 years",
+      "location": "Noida",
+      "salary_range": [700000, 1200000],
+      "company": "TestMasters"
+    },
+    {
+      "job_id": "J047",
+      "title": "Rust Developer",
+      "required_skills": ["Rust"],
+      "experience_required": "1-3 years",
+      "location": "Remote",
+      "salary_range": [1000000, 1800000],
+      "company": "FastSystems"
+    },
+    {
+      "job_id": "J048",
+      "title": "Salesforce Developer",
+      "required_skills": ["Apex"],
+      "experience_required": "2-4 years",
+      "location": "Bangalore",
+      "salary_range": [850000, 1400000],
+      "company": "CloudCRM"
+    },
+    {
+      "job_id": "J049",
+      "title": "Digital Marketing Manager",
+      "required_skills": ["SEM"],
+      "experience_required": "4-6 years",
+      "location": "Mumbai",
+      "salary_range": [1100000, 1700000],
+      "company": "MarketScale"
+    },
+    {
+      "job_id": "J050",
+      "title": "Embedded Linux Engineer",
+      "required_skills": ["Yocto"],
+      "experience_required": "3-5 years",
+      "location": "Chennai",
+      "salary_range": [1200000, 2000000],
+      "company": "CoreLinux"
     }
   ]
 }

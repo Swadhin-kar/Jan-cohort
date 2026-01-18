@@ -6,7 +6,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 py-28">
-      
+
       {/* Background glow */}
       <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl" />
       <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-indigo-300/30 blur-3xl" />
@@ -49,16 +49,40 @@ export default function Hero() {
         </motion.p>
 
         {/* CTA */}
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-          onClick={() => navigate('/developer')}
-          className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-500/30"
-        >
-          Get Started
-          <span className="text-xl">→</span>
-        </motion.button>
+        <div className='space-x-4'>
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            onClick={() => navigate('/job-board')}
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-500/30"
+          >
+            Find Your Dream Job
+            <span className="text-xl">→</span>
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            onClick={() => navigate('/resume-upload')}
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-500/30"
+          >
+            Upload Your resume
+            <span className="text-xl">→</span>
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            onClick={() => navigate('/draft')}
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-500/30"
+          >
+            Draft Your Job Description
+            <span className="text-xl">→</span>
+          </motion.button>
+        </div>
       </motion.div>
     </section>
   )

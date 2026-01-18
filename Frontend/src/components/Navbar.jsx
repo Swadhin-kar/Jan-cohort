@@ -47,29 +47,6 @@ const Navbar = () => {
                     Wevolve
                 </Link>
 
-                {/* Primary CTA */}
-                <motion.button
-                    whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 260 }}
-                    onClick={() => navigate("/job-board")}
-                    className="hidden md:flex items-center justify-center
-                     px-10 py-4 rounded-2xl
-                     bg-gradient-to-r from-blue-600 to-indigo-600
-                     text-white text-lg font-semibold
-                     shadow-xl shadow-blue-500/30"
-                >
-                    Find Your Dream Job
-                </motion.button>
-
-                {showQuestions && !results && (
-                    <QuestionPage onComplete={handleCompleteQuestions} />
-                )}
-
-                {results && (
-                    <JobResults jobs={results} />
-                )}
-
                 <div className="flex flex-row space-x-4">
                     {/* Right Controls */}
                     <div className="flex items-center gap-4">

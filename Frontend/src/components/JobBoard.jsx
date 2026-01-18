@@ -31,7 +31,6 @@ const JobBoard = () => {
     useEffect(() => {
         let jobs = [...jobsData.jobs];
 
-        // Check if user has any active selections
         const hasActiveFilters =
             filters.locations.length > 0 ||
             filters.roles.length > 0 ||
@@ -43,30 +42,21 @@ const JobBoard = () => {
         }
 
         const filtered = jobs.filter(job => {
-            // 1. --- SKILLS: "OR" Logic ---
-            // Match if job has ANY of the selected skills
             const skillsMatch = filters.skills.length === 0 ||
                 filters.skills.some(skill => job.required_skills.includes(skill));
 
-            // 2. --- LOCATION: "OR" Logic ---
             const locationMatch = filters.locations.length === 0 ||
                 filters.locations.includes(job.location);
 
-            // 3. --- ROLES: "OR" Logic ---
             const roleMatch = filters.roles.length === 0 ||
                 filters.roles.includes(job.title);
 
-            // 4. --- SALARY: Constraint ---
             const jobMaxSalary = job.salary_range[1];
             const salaryMatch = jobMaxSalary >= filters.maxSalary;
 
-            // 5. --- EXPERIENCE: Constraint ---
             const jobMinExp = parseInt(job.experience_required.split("-")[0]) || 0;
             const experienceMatch = jobMinExp <= filters.minExperience;
 
-            // --- FINAL LOGIC ---
-            // Must satisfy Salary & Experience requirements
-            // Must match EITHER Skills OR Location OR Role
             const isFlexibleMatch = skillsMatch || locationMatch || roleMatch;
 
             return salaryMatch && experienceMatch && isFlexibleMatch;

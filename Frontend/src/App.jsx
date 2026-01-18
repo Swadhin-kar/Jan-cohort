@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Search from "./pages/Search";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import QuestionPage from "./components/QuestionPage";
 import JobBoard from "./components/JobBoard";
+import ResumeUpload from "./components/ResumeUpload";
+import Drafts from "./pages/Drafts";
 
 
 export default function App() {
@@ -18,9 +18,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/question-flow" element={<QuestionPage />} />
           <Route path="/job-board" element={<JobBoard />} />
-          {/* <Route path="/:search" element={<Search />} /> */}
+          <Route path='/resume-upload' element={<ResumeUpload />} />
+          <Route path="/draft" element={<Drafts />} />
 
 
           <Route path="/user/login" element = {<Login />} />
