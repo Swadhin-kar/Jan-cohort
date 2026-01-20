@@ -4,8 +4,12 @@ import {
   ChevronRight, ChevronLeft, CheckCircle, Briefcase,
   Code, Coffee, FileText, Sparkles, Target
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const JobDescriptionGenerator = () => {
+
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     jobTitle: '',
@@ -19,8 +23,21 @@ const JobDescriptionGenerator = () => {
   const industries = ["Technology", "Healthcare", "Finance", "Education", "Manufacturing", "Marketing"];
   const skillOptions = ["React", "Project Management", "Python", "Data Analysis", "SQL", "Public Speaking", "UI/UX Design", "AWS", "Sales", "Content Writing"];
 
-  const handleNext = () => setStep((prev) => Math.min(prev + 1, 4));
+  const handleNext = () => setStep((prev) => {
+    // console.log("Current form data: ", formData);
+    return Math.min(prev + 1, 4)
+  });
   const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
+
+  const handleSubmit = () => {
+    console.log("form data si : ", formData)
+    ///////////////////////////////////////////////////call the function to generate JD using  AAAAI 
+
+
+
+
+
+  }
 
   const toggleSkill = (skill) => {
     setFormData(prev => ({
@@ -243,7 +260,7 @@ const JobDescriptionGenerator = () => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={step === 4 ? () => alert("Generating...") : handleNext}
+            onClick={step === 4 ? handleSubmit : handleNext}
             disabled={step === 1 && !formData.jobTitle}
             className={`px-8 py-3 rounded-xl font-bold shadow-lg flex items-center gap-2 transition-all ${step === 4
                 ? 'bg-emerald-600 text-white shadow-emerald-200'

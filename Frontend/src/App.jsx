@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import JobBoard from "./components/JobBoard";
 import ResumeUpload from "./components/ResumeUpload";
 import Drafts from "./pages/Drafts";
-
+import JobDescription from "./pages/JobDescription";
 
 export default function App() {
   return (
@@ -21,6 +21,7 @@ export default function App() {
           <Route path="/job-board" element={<JobBoard />} />
           <Route path='/resume-upload' element={<ResumeUpload />} />
           <Route path="/draft" element={<Drafts />} />
+          <Route path="/job-description" element={<JobDescription />} />
 
 
           <Route path="/user/login" element = {<Login />} />
