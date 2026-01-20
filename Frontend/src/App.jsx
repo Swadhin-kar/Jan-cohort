@@ -20,8 +20,7 @@ export default function App() {
 
           <Route path="/job-board" element={<JobBoard />} />
           <Route path='/resume-upload' element={<ResumeUpload />} />
-          <Route path="/draft" element={<Drafts />} />
-          <Route path="/job-description" element={<JobDescription />} />
+          <Route path="/job-description" element={<Drafts />} />
 
 
           <Route path="/user/login" element = {<Login />} />

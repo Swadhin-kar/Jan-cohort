@@ -6,6 +6,7 @@ const router = Router()
 
 export const JD = async (req, res) => {
     const { prompt } = req.body
+    console.log("BODY RECEIVED:", req.body);
 
     try {
         if (!prompt) {
@@ -38,8 +39,8 @@ export const JD = async (req, res) => {
         );
 
         ///////////// from here proceed
-        const message = response.data.choices[0].message.content
-        return res.status(200).json({ message })
+        // const message = response.data.choices[0].message.content
+        // return res.status(200).json({ message })
 
         const messages = response.data.choices[0].message.content
 

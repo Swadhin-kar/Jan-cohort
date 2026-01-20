@@ -76,7 +76,7 @@ export default function Hero() {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300 }}
-            onClick={() => navigate('/draft')}
+            onClick={() => navigate('/job-description')}
             className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-500/30"
           >
             Draft Your Job Description
