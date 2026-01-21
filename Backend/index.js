@@ -4,28 +4,29 @@ import userRouter from './routes/user.route.js'
 import aiRouter from './routes/ai.route.js'
 import cors from 'cors'
 
+dotenv.config()
+
 const app = express()
 
-// all configs
-dotenv.config()
+// middleware
+app.use(express.json())
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://wevolve.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
-}));
+}))
 
-
-//middlewares
-
-
-//PORT
-const PORT =  process.env.PORT || 7000;
-const BASE_URL = process.env.BASE_URL || 'http://localhost:7001'
-
-app.use(express.json())
+// routes
 app.use('/user', userRouter)
 app.use('/ai', aiRouter)
 
+// PORT (Render provides this automatically)
+const PORT = process.env.PORT || 7000
+
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${BASE_URL}`)
+  console.log(`Server running on port ${PORT}`)
 })
