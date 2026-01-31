@@ -42,7 +42,27 @@ export const JD = async (req, res) => {
         // const message = response.data.choices[0].message.content
         // return res.status(200).json({ message })
 
-        const messages = response.data.choices[0].message.content
+        console.log("OPENROUTER RAW RESPONSE:", JSON.stringify(response.data, null, 2));
+
+        const choices = response.data?.choices;
+
+        if (!choices || choices.length === 0) {
+            console.error("Invalid OpenRouter response:", response.data);
+            return res.status(500).json({
+                success: false,
+                error: "AI response format invalid"
+            });
+        }
+
+        const messages = choices[0]?.message?.content;
+
+        if (!messages) {
+            return res.status(500).json({
+                success: false,
+                error: "AI did not return any content"
+            });
+        }
+
 
         return res.status(200).json({
             success: true,
