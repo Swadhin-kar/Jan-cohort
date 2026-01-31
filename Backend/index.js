@@ -14,7 +14,8 @@ app.use(express.json())
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://wevolve.vercel.app"
+    "https://wevolve.vercel.app",
+    'https://wevolve-git-main-swadhin-kars-projects.vercel.app'
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
