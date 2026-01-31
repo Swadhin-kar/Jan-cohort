@@ -43,7 +43,7 @@ const Drafts = () => {
     setError("");
 
     try {
-      const res = await fetch(`${BACKEND_URL}/ai/generate-jd`, {
+      const res = await fetch("https://jan-cohort-z3t4.onrender.com/ai/generate-jd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -77,7 +77,6 @@ const Drafts = () => {
     });
   };
 
-  // Animation Variants
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -86,7 +85,6 @@ const Drafts = () => {
 
   return (
     <div className="min-h-screen bg-[#f0f7ff] font-sans text-slate-900 p-6 flex items-center justify-center">
-      {/* Decorative background blobs */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-200/40 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-sky-200/40 rounded-full blur-[120px]" />
