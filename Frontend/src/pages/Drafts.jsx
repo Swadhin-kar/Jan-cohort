@@ -43,8 +43,8 @@ const Drafts = () => {
     setError("");
 
     try {
-      // const res = await fetch("https://jan-cohort-z3t4.onrender.com/ai/generate-jd", {
-      const res = await fetch("http://localhost:7000/ai/generate-jd", {
+      const res = await fetch("https://jan-cohort-z3t4.onrender.com/ai/generate-jd", {
+      // const res = await fetch("http://localhost:7000/ai/generate-jd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
