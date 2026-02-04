@@ -1,83 +1,116 @@
-import express from 'express'
-import { Router } from 'express'
-import axios from 'axios'
+import express from "express";
+import { Router } from "express";
+import OpenAI from "openai";
+import dotenv from "dotenv";
 
-const router = Router()
+dotenv.config();
 
-export const JD = async (req, res) => {
-    const { prompt } = req.body
+const router = Router();
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const JD_OPENAI = async (req, res) => {
+  try {
+    const { prompt } = req.body;
     console.log("BODY RECEIVED:", req.body);
 
-    try {
-        if (!prompt) {
-            return res.status(400).json({ error: "Prompt is null" })
-        }
-
-        const response = await axios.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            {
-                model: "deepseek/deepseek-r1-0528:free",
-                messages: [
-                    {
-                        role: "system",
-                        content:
-                            "You are a helpful assistant that improves job descriptions provided by recruiters. Enhance clarity, structure, and appeal while retaining all key details."
-                    },
-                    {
-                        role: "user",
-                        content: prompt
-                    }
-                ],
-                temperature: 0.6
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-                    "Content-Type": "application/json",
-                },
-            }
-        );
-
-        ///////////// from here proceed
-        // const message = response.data.choices[0].message.content
-        // return res.status(200).json({ message })
-
-        console.log("OPENROUTER RAW RESPONSE:", JSON.stringify(response.data, null, 2));
-
-        const choices = response.data?.choices;
-
-        if (!choices || choices.length === 0) {
-            console.error("Invalid OpenRouter response:", response.data);
-            return res.status(500).json({
-                success: false,
-                error: "AI response format invalid"
-            });
-        }
-
-        const messages = choices[0]?.message?.content;
-
-        if (!messages) {
-            return res.status(500).json({
-                success: false,
-                error: "AI did not return any content"
-            });
-        }
-
-
-        return res.status(200).json({
-            success: true,
-            data: messages
-        })
-    } catch (error) {
-        console.error("JD generation error:", error.response?.data || error.message);
-
-        return res.status(500).json({
-            success: false,
-            error: "Failed to generate job description"
-        });
+    if (!prompt) {
+      return res.status(400).json({
+        success: false,
+        error: "Prompt is required",
+      });
     }
-}
 
-router.post('/generate-jd', JD)
+    const response = await openai.responses.create({
+      model: "gpt-5-nano",
+      input: `
+You are a helpful assistant that improves job descriptions.
+Enhance clarity, structure, and appeal while keeping all details.
 
-export default router
+${prompt}
+      `,
+    });
+
+    const outputText = response.output_text;
+
+    if (!outputText) {
+      return res.status(502).json({
+        success: false,
+        error: "Empty response from OpenAI",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: outputText,
+    });
+  } catch (error) {
+    console.error("===== OPENAI ERROR =====");
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
+
+// const JD_OPENAI = async (req, res) => {
+//     try {
+//         const { prompt } = req.body;
+//         console.log("BODY RECEIVED:", req.body);
+
+//         if (!prompt) {
+//             return res.status(400).json({
+//                 success: false,
+//                 error: "Prompt is required",
+//             });
+//         }
+
+//         const response = await openai.responses.create({
+//             model: "gpt-5-nano",
+//             input: [
+//                 {
+//                     role: "system",
+//                     content:
+//                         "You are a helpful assistant that improves job descriptions. Enhance clarity, structure, and appeal while keeping all details.",
+//                 },
+//                 {
+//                     role: "user",
+//                     content: prompt,
+//                 },
+//             ],
+//             max_output_tokens: 600,
+//             // ❌ temperature REMOVED (important)
+//         });
+
+//         const outputText = response.output_text;
+
+//         if (!outputText) {
+//             return res.status(502).json({
+//                 success: false,
+//                 error: "OpenAI returned empty response",
+//             });
+//         }
+
+//         return res.status(200).json({
+//             success: true,
+//             data: outputText,
+//         });
+//     } catch (error) {
+//         console.error("===== OPENAI ERROR FULL DUMP =====");
+//         console.error(JSON.stringify(error, null, 2));
+//         console.error("=================================");
+
+//         return res.status(500).json({
+//             success: false,
+//             error: error?.message || "Unknown error",
+//         });
+//     }
+// };
+
+router.post("/generate-jd", JD_OPENAI);
+
+export default router;
